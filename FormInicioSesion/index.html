@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body onload="inicializar()">
+<form method="POST" action="">
+  <section class="form-register">
+    <center>
+      <h5 id="pag" class="regis"></h5>
+      <h4>Iniciar Sesión</h4>
+    </center>
+        *Usuario:<br> <input class="controls1" type="text" id="Usuario" placeholder="Correo o Telefono.." required><br>
+        *Contraseña:<br> <input class="controls" type="password" name="password" id="password" placeholder="Contraseña..." required>
+        <button class="btn" type="button" onclick="mostrarContraseña()">Ver</button>
+        <br>
+        <a href="#">¿Has olvidado la contraseña?</a><br>
+        <a href="#"><input class="boton" type="button" id="botones" value="Enviar"></a>
+        <h5 id="logOut"></h5>
+  </section>
+</form>
+<script src="js/js.js"></script>
+</body>
+</html>
