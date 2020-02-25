@@ -19,11 +19,7 @@ function validar() {
     }
 
     if(comprob == true){
-        pasarPag();
-        var nombre = "Cookie 1";
-        var valor = document.getElementById('Usuario').value+" "+document.getElementById('password').value;;
-        var tiempo = 1;
-        setCookie(nombre,valor,tiempo);
+        confirmarCookie();
     }
 }
 
@@ -36,13 +32,6 @@ function mostrarContraseña(){
     }
 }
 
-window.addEventListener("load", inicio);
-
-function inicio(){
-
-    if(document.cookie != "") pasarPag();
-
-}
 
 function inicializar(){
     var btn;
@@ -51,9 +40,7 @@ function inicializar(){
 }
 
 function pasarPag(){
-    document.getElementById("pag").innerHTML = "<h4>¡¡Sesión Iniciada!!</h4>";
     document.getElementById("logOut").innerHTML = "<a href='index.html'><input class='boton' type='button' id='eliminar' value='Cerrar Sesion'></a>";
-
     document.getElementById("eliminar").addEventListener("click", eliminarCookie);
 
 }
@@ -89,7 +76,28 @@ function getCookie(nombre){
 }
 
 function deleteCookie(nombre){
-    alert("Se elimino: "+document.cookie);
+    document.getElementById("pag").innerHTML = "<h4>Se elimino la cookie!!</h4>";
     setCookie(nombre,"",0);
 
+}
+
+function confirmarCookie(){
+    var usu = document.getElementById('Usuario').value;
+    var con = document.getElementById('password').value;
+    var array = document.cookie.split("=");
+    for ( var i=0;i<array.length;i++){
+    if(usu == array[i] && con == array[i+1]){
+        document.getElementById("pag").innerHTML = "<h4>¡¡Sesión Iniciada Correctamente!!</h4>";
+        pasarPag();
+        var n = "Logeado Correctamente";
+        var x = document.getElementById("Usuario").value;
+        tiempo = 1;
+        setCookie(n,x,tiempo);
+        break;
+    }else{
+        document.getElementById("pag").innerHTML = "<h4>¡¡ERROR!!</h4>";
+
+    }
+
+}
 }
